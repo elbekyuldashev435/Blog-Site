@@ -1,0 +1,25 @@
+
+
+<title>About</title>
+
+<header>
+  <a href="{% url 'home:home-page' %}">home</a><br><br>
+  <a href="{% url 'users:profile' %}">Profile</a> |
+  <a href="{% url 'users:logout' %}">Logout</a>
+</header>
+
+<h1>
+  About Me
+</h1>
+<body>
+  <form method="post" enctype="multipart/form-data">
+      {% for about in abouts %}
+        <img src="{{ about.image.url }}" height="200px"><br><br>
+        <h2>My name is {{ about.first_name }} {{ about.last_name }}</h2>
+        <h3>{{ about.title }}</h3>
+        {% if user.is_staff %}
+          <a href="{% url 'home:about-update' %}"><button>Addit</button></a>
+        {% endif %}
+  {% endfor %}
+  </form>
+</body>

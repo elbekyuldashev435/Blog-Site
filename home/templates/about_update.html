@@ -1,0 +1,12 @@
+
+
+<title>AboutUpdate</title>
+<h1>Update About Page</h1>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
